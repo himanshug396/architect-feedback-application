@@ -1,0 +1,239 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+}
+.pointer{
+  cursor: pointer;
+}
+.uppercase{
+	text-transform: uppercase;
+}
+.center-align{
+	text-align: center;
+}
+.header{
+
+	height: 500px;
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-image: url('../images/head.png');
+ margin-bottom: 30px
+
+}
+.header .col-md-1{
+	padding-top: 10px;
+	width:10%;
+}
+
+.library{
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('../images/library.png');
+
+}
+.refer{
+  padding-top: 25px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url('../images/referback.png');
+}
+.white-text{
+	color: white;
+}
+.margin-bottom-50{
+	margin-bottom: 50px
+}
+.margin-top-50{
+	margin-top: 50px
+}
+.link-btn{
+ color: white;
+ text-transform: uppercase;
+ border-radius: 0;
+}
+.header img{
+	width:20px;
+}
+.transparent-background{
+	background-color: transparent;
+}
+.navbar-inverse{
+	border:none;
+}
+.navbar-brand{
+	padding: 0px 15px; 
+
+}
+.row{
+	margin-top: 10px;
+}
+.demo{
+	border:2px solid black;
+	height: 50vh;
+	width: 100%;
+}
+
+/********************
+ * FEATURE CAROUSEL *
+ ********************/
+ 
+ .carousel-container {
+  position:relative;
+  width:960px;
+  margin:auto;
+}
+#carousel {
+  height:280px;
+  width:960px;
+  position:relative;
+  margin-bottom:0.5em;
+  font-size:12px;
+  font-family: Arial;
+}
+.carousel-image {
+  border:0;
+  display:block;
+}
+.carousel-feature {
+  position:absolute;
+  top:-1000px;
+  left:-1000px;
+  border:2px solid #5d5d5d;
+  cursor:pointer;
+}
+.carousel-feature .carousel-caption {
+  position:absolute;
+  bottom:0;
+  width:100%;
+  background-color:#000;
+}
+.carousel-feature .carousel-caption p {
+  margin:0;
+  padding:5px;
+  font-weight:bold;
+  font-size:12px;
+  color:white;
+}
+.tracker-summation-container {
+  position:absolute;
+  color:white;
+  right:48px;
+  top:230px;
+  padding:3px;
+  margin:3px;
+  background-color:#000;
+}
+.tracker-individual-container {
+  position:absolute;
+  color:white;
+  right:48px;
+  top:210px;
+  padding:0;
+  margin:0;
+}
+.tracker-individual-container li {
+  list-style:none;
+}
+.tracker-individual-container .tracker-individual-blip {
+  margin:0 3px;
+  padding:0 3px;
+  color:white;
+  text-align:center;
+  background-color:#DDD;
+}
+.tracker-individual-container .tracker-individual-blip-selected {
+  color:white;
+  font-weight:bold;
+  background-color:#000;
+}
+#carousel-left {
+  position:absolute;
+  bottom:33px;
+  left:220px;
+  cursor:pointer;
+}
+#carousel-right {
+  position:absolute;
+  bottom:33px;
+  right:220px;
+  cursor:pointer;
+}
+
+/* library */
+
+.modal-dialog {
+ width: initial; 
+ /* margin: 30px auto; */
+}
+.modal-sidebar-row{
+  border-bottom: 1px solid gray;
+  padding-bottom: 10px
+}
+.tags{
+  height:100%;
+  width: 100%;
+  position: absolute;
+}
+.child {
+ border: 5px solid;
+ left: 48%;
+ position: absolute;
+ font-size: 30px;
+ cursor: pointer;
+ top: 8%;
+ border-radius: 100%;
+ width: 6%;
+ text-align: center;
+ font-weight: 900;
+}
+.child_hover {
+    border: 1px solid black;
+    position: absolute;
+    background: white;
+    padding: 10px;
+    top: 13%;
+    left: 51%;
+}
+
+.box_question{
+    width:45%;
+    margin: auto;}  
+
+.box_question ul{ 
+ list-style-type: none;
+
+  font-size:20px;
+  padding:10px; 
+  border:0px solid black; 
+  text-align:center;
+  background: rgba(0,0,0,0.5);
+  border-radius: 0px;}
+
+
+
+.box_question ul li a , .box_question ol li a{
+  text-decoration : none;
+  color: #fff;
+  padding:5px;
+  border-radius: 10px;
+  opacity: 0.8;
+}
+.box-question ul li {
+ list-style-type: none;
+}
+
+.box_question ol{
+ font-size:20px;
+  padding:10px; 
+  border:0px solid black; 
+  text-align:center;
+  background: rgba(0,0,0,0.5);
+  border-radius: 0px;
+  list-style-type: none;
+}
+ 
+ .box_question ul li a:hover , .box_question ol li input:hover{
+    cursor: pointer;
+ }

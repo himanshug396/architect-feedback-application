@@ -1,0 +1,52 @@
+{% load static from staticfiles %}
+<head>
+  
+<title>Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'polls/css/login.css' %}">
+</head>
+<body>
+
+
+  <div class="container-fluid bg">
+      <div class="col-md-12 text-center" style="padding-top:5vh;">
+            <a href="{% url 'polls:index' %}" style="text-align:center;"><img src="{% static 'polls/images/home.png' %}" alt="" width="130px"></a>
+    
+    </div>
+    
+{% if message %}<p class="error"><strong>{{message}}</strong></p> {% endif %}
+    <form class="form-horizontal" action="{% url 'polls:afterloginpage' %}" method="post">
+     {% csrf_token %}
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+              <div class="form-group ">
+                <div class="col-sm-10 col-sm-offset-1 toppad">
+                  <input type="text" class="form-control name" placeholder="Username" name="username" method="POST">
+                </div>
+              </div> 
+              <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-1">          
+                  <input type="password" class="form-control name" placeholder="Password" name="password" method="POST">
+                  </div>
+              </div> 
+              <div class="col-sm-12 btn1" style="margin-top:20px;">
+                <input type="submit" class="cta" name="Login" value="Login"><span class="typoround-light-small"></span>
+              </div>
+              <div class="col-sm-12">
+              <p class="heading">Do not have an Account?</p>
+              </div>
+              <div class="col-sm-12 btn2">
+                <a href="{% url 'polls:signup' %}" class="cta1 shadow" name="signup" value="Sign Up">
+                  <span class="typoround-light-small">Signup</span>
+                </a>
+              </div>  
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+  </body>
+  </html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+{% load static from staticfiles %}
+
+ <title>Home</title>
+ <link href="{% static 'polls/css/bootstrap.css' %}" rel="stylesheet">
+ <script src="{% static 'polls/js/jquery.js' %}"></script>
+ <script src="{% static 'polls/js/bootstrap.js' %}"></script>
+ <link rel="stylesheet" type="text/css" href="{% static 'polls/css/font-awesome.css' %}">
+ <script src="{% static 'polls/js/jquery-1.7.min.js' %}" type="text/javascript" charset="utf-8"></script>
+ <script src="{% static 'polls/js/jquery.featureCarousel.js' %}" type="text/javascript" charset="utf-8"></script>
+ <link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css' %}">
+ <script type="text/javascript" src="{% static 'polls/js/script.js' %}"></script>
+
+<body>
+<style type="text/css">
+ .navbar-inverse .navbar-nav>li>a{
+ color: white
+}
+</style>
+ <div class="container-fluid header white-text uppercase">
+  <nav class="navbar navbar-inverse navbar-fixed-top ransparent-background" role="navigation">
+   <div class="container-fluid">
+    <div class="navbar-header">
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+     </button>
+     <a class="navbar-brand" href="{% url 'polls:index' %}"><img src="{% static 'polls/images/logo.png' %}" style="width:50px"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <ul class="nav navbar-nav navbar-right">
+    {% if user and user.is_authenticated %}
+      
+        <li><a href="{% url 'polls:index2' %}"><img src='{% static 'polls/images/nav4.png' %}'>&nbsp;&nbsp;Hi , {{ user.get_username }}</a></li>
+        <li><a href=""><img src='{% static 'polls/images/nav1.png' %}'>&nbsp;&nbsp;offers</a></li>
+        <li><a href="{% url 'polls:index2' %}"><img src='{% static 'polls/images/nav2.png' %}'>&nbsp;&nbsp;Feedback</a></li>
+        <li><a href="{% url 'polls:library' %}"><img src='{% static 'polls/images/nav3.png' %}'>&nbsp;&nbsp;library</a></li>
+        <li><a href="{% url 'polls:logout' %}"><img src='{% static 'polls/images/nav4.png' %}'>&nbsp;&nbsp;logout</a></li>
+    {% else %}
+        <li><a href=""><img src='{% static 'polls/images/nav1.png' %}'>&nbsp;&nbsp;offers</a></li>
+        <li><a href="{% url 'polls:index2' %}"><img src='{% static 'polls/images/nav2.png' %}'>&nbsp;&nbsp;Feedback</a></li>
+        <li><a href="{% url 'polls:library' %}"><img src='{% static 'polls/images/nav3.png' %}'>&nbsp;&nbsp;library</a></li>
+  
+        <li><a href="{% url 'polls:loginpage' %}"><img src='{% static 'polls/images/nav4.png' %}'>&nbsp;&nbsp;login</a></li>
+    {% endif %}
+     </ul>
+    </div>
+   </div>
+  </nav>
+  <div class="container center-align uppercase white-text" style="margin-top:15%">
+   <div class="row">
+    <div class="col-md-12" style="font-size:50px;font-weight:700">
+     houzzane
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12" style="font-size:20px">
+     transform your ideas into reality
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="container margin-bottom-50">
+  <div class="row">
+   <div class="col-md-12 center-align uppercase margin-bottom-50" style="color:#ADABAC;font-size:25px;">
+    What Do you want?
+   </div>
+  </div>
+  <div class="row">
+   <div class="col-md-3 center-align whatuwant">
+    <div class="row">
+     <div class="col-md-12">
+      <img src="{% static 'polls/images/interior.png' %}">
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-md-12" style="margin-top: 15px;font-size: 20px;">
+      Interior Design
+     </div>
+    </div>
+   </div>
+   <div class="col-md-3 center-align whatuwant">
+    <div class="row">
+     <div class="col-md-12">
+      <img src="{% static 'polls/images/home.png' %}">
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-md-12" style="margin-top: 15px;font-size: 20px;">
+      Home Design
+     </div>
+    </div>
+   </div>
+   <div class="col-md-3 center-align whatuwant">
+    <div class="row">
+     <div class="col-md-12">
+      <img src="{% static 'polls/images/landscape.png' %}">
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-md-12" style="margin-top: 15px;font-size: 20px;">
+      Landscape Design
+     </div>
+    </div>
+   </div>
+   <div class="col-md-3 center-align whatuwant">
+    <div class="row">
+     <div class="col-md-12">
+      <img src="{% static 'polls/images/plan.png' %}">
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-md-12" style=" margin-top: 15px;font-size: 20px;">
+      Plan Modification
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="container margin-bottom-50">  
+  <div class="col-md-12 uppercase center-align margin-bottom-50" style="color:#ADABAC;font-size:25px;">
+   Our works
+  </div>
+  
+  <div class="row" style="margin-bottom:20px">
+   <div class="col-md-8">
+    <img src="{% static 'polls/images/work.png' %}" style="width:100%" class="work1">
+   </div>
+   <div class="col-md-4">
+    <img src="{% static 'polls/images/work.png' %}" style="width:100%" class="work2">
+   </div>
+  </div>
+  <div class="row">
+   <div class="col-md-4">
+    <img src="{% static 'polls/images/work.png' %}" style="width:100%" class="work3">
+   </div>
+   <div class="col-md-4">
+    <img src="{% static 'polls/images/work.png' %}" style="width:100%" class="work4">
+   </div>
+   <div class="col-md-4">
+    <img src="{% static 'polls/images/work.png' %}" style="width:100%" class="work5">
+   </div>
+  </div>
+  <div class="row" style="margin-top:20px">
+   <div class="col-md-12 center-align">
+    <button type="button" class="btn link-btn" style="background-color:#E0A2B3">See More</button>
+
+   </div>
+  </div>
+ </div>
+ <div class="wrapper library">
+  <div class="container">
+   <div class="row">
+    <div class="col-md-4">
+     <div class="row">
+      <div class="col-md-12 uppercase" style="font-size:30px">
+       Houzzane LIbrary
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-md-12" style="font-size:20px;margin-top:20px;margin-bottom:20px">
+       <p>
+        Our library has plenty of designs
+
+        that you'll love to refer for your
+
+        home.
+       </p>
+       <p>
+        Just choose the one you like and
+
+        pin it to your ideabook.
+       </p>
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-md-12 uppercase">
+       <a href="library.html"><button class="btn link-btn" style="background-color:#F16377"> Visit library</button></a> 
+      </div>
+     </div>
+    </div>
+
+    <div class="col-md-6 col-md-offset-2 center-align">
+     <img src="{% static 'polls/images/lib.png' %}" style="width:55%">
+    </div>
+   </div>
+  </div>
+ </div> 
+ <div class="container margin-bottom-50 margin-top-50">
+  <div class="row  margin-bottom-50">
+   <div class="col-md-12 uppercase center-align"  style="color:#ADABAC;font-size:25px;">
+    trending
+   </div>
+  </div>
+  <div class="row">
+   <div class="col-md-7">
+    <div class="row" style="margin-bottom:20px">
+     <div class="col-md-12">
+      <img src="{% static 'polls/images/work.png' %}" style="width:100%">
+     </div>
+    </div>
+    <div class="row">
+     <div class="col-md-6">
+      <img src="{% static 'polls/images/work.png' %}" style="width:100%">
+     </div>
+     <div class="col-md-6">
+      <img src="{% static 'polls/images/work.png' %}" style="width:100%">
+     </div>
+    </div>
+   </div>
+   <div class="col-md-5">
+    <img src="{% static 'polls/images/work.png' %}" style="width:100%">
+   </div>
+  </div>
+  <div class="row" style="margin-top:20px">
+   <div class="col-md-12 center-align">
+    <button type="button" class="btn link-btn" style="background-color:#E0A2B3">See More</button>
+
+   </div>
+  </div>
+
+ </div>
+ <div class="container-fluid margin-bottom-50 refer">
+  <div class="container white-text">
+   <div class="row">
+    <div class="col-md-6">
+     <div class="row" style="margin-bottom:20px">
+      <div class="col-md-12 uppercase"  style="font-size:30px">
+       refer a friend
+      </div>
+     </div>
+     <div class="row" style="margin-bottom:20px">
+      <div class="col-md-12 uppercase"  style="font-size:20px">
+       and get a chance to earn
+      </div>
+     </div>
+     <div class="row" style="margin-bottom:20px">
+      <div class="col-md-12 uppercase">
+       <button type="button" class="btn link-btn" style="background-color:#E0A2B3">Know More</button>
+      </div>
+     </div>
+    </div>
+
+    <div class="col-md-6">
+     <img src="{% static 'polls/images/refer.png' %}" width="100%">
+    </div>
+   </div>
+  </div>
+ </div>
+ <div class="container margin-bottom-50">
+  <div class="row">
+   <div class="col-md-12 uppercase center-align"  style="color:#ADABAC;font-size:25px;">
+    our blog
+   </div>
+  </div>
+  <div class="row">
+   <div class="carousel-container">
+    <div id="carousel">
+     <div class="carousel-feature">
+      <a href="#"><img class="carousel-image" alt="Image Caption" src="{% static 'polls/images/sample1.jpg' %}"></a>
+      <div class="carousel-caption">
+       <p>
+        This area is typically used to display captions associated with the images. They are set to hide and fade in on rotation.
+       </p>
+      </div>
+     </div>
+     <div class="carousel-feature">
+      <a href="#"><img class="carousel-image" alt="Image Caption" src="{% static 'polls/images/sample2.jpg' %}"></a>
+      <div class="carousel-caption">
+       <p>
+        The background will expand up or down to fit the caption.
+       </p>
+      </div>
+     </div>
+     <div class="carousel-feature">
+      <a href="#"><img class="carousel-image" alt="Image Caption" src="{% static 'polls/images/sample3.jpg' %}"></a>
+      <div class="carousel-caption">
+       <p>
+        polls/images can be placed here as well.
+       </p>
+      </div>
+     </div>
+     <div class="carousel-feature">
+      <a href="#"><img class="carousel-image" alt="Image Caption" src="{% static 'polls/images/sample4.jpg' %}"></a>
+     </div>
+     <div class="carousel-feature">
+      <a href="#"><img class="carousel-image" alt="Image Caption" src="{% static 'polls/images/sample5.jpg' %}"></a>
+      <div class="carousel-caption">
+       <p>
+        The background color of the caption area can be changed using CSS. The opacity can be changed in the options, but it will also change the opacity of the text.
+       </p>
+      </div>
+     </div>
+    </div>
+<!-- 
+    <div id="carousel-left"><img src="{% static 'polls/images//arrow-left.png' %}" /></div>
+    <div id="carousel-right"><img src="{% static 'polls/images//arrow-right.png' %}" /></div> -->
+   </div>
+  </div>
+ </div>
+ <footer style="padding-top: 20px;background-color: #8E7CB9;padding-bottom: 20px;">
+  <div class="container uppercase white-text">
+   <div class="row">
+    <div class="col-md-4">
+     <div class="row">
+      <div class="col-md-12">
+       <img src="{% static 'polls/images/logo.png' %}">
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-md-12">
+       Houzzane
+      </div>
+     </div>
+    </div>
+    <div class="col-md-4">
+     <div class="row">
+      <div class="col-md-12">
+       about
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-md-12">
+       terms of use
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-md-12">
+       we are hiring
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-md-12">
+       offers
+      </div>
+     </div>
+    </div>
+    <div class="col-md-4">
+     <div class="row">
+      <div class="col-md-12">
+       for architects
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-md-12">
+       payments
+      </div>
+     </div>
+     <div class="row">
+      <div class="col-md-12">
+       contact us
+      </div>
+     </div> 
+    </div>
+   </div>
+  </div>
+ </footer>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+{% load static from staticfiles %}
+
+<link href="{% static 'polls/css/bootstrap.css' %}" rel="stylesheet">
+ <script src="{% static 'polls/js/jquery.js' %}"></script>
+ <script src="{% static 'polls/js/bootstrap.js' %}"></script>
+ <link rel="stylesheet" type="text/css" href="{% static 'polls/css/font-awesome.css' %}">
+ <script src="{% static 'polls/js/jquery-1.7.min.js' %}" type="text/javascript" charset="utf-8"></script>
+ <script src="{% static 'polls/js/jquery.featureCarousel.js' %}" type="text/javascript" charset="utf-8"></script>
+ <link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css' %}">
+ <script type="text/javascript" src="{% static 'polls/js/script.js' %}"></script>
+
+<body style="overflow-x:hidden">
+	<style type="text/css">
+		.modal-content{
+			box-shadow: none;
+			border: none;
+			background-color: black;
+		}
+		.link-btn:hover{
+			color: white
+		}
+		.modal-backdrop.in {
+			filter: alpha(opacity=50);
+			opacity: 0.8;
+		}
+		.modal-dialog{
+			margin:18px auto;
+		}
+	</style>
+	<div class="container-fluid header white-text uppercase" style="height:50px;background-image:none;background-color:#222;">
+ 
+	  <nav class="navbar navbar-inverse navbar-fixed-top ransparent-background" role="navigation">
+   <div class="container-fluid">
+    <div class="navbar-header">
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+     </button>
+     <a class="navbar-brand" href="{% url 'polls:index' %}"><img src="{% static 'polls/images/logo.png' %}" style="width:50px"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <ul class="nav navbar-nav navbar-right">
+      <li><a href="{% url 'polls:index2' %}"><img src='{% static 'polls/images/nav4.png' %}'>&nbsp;&nbsp;Hi , {{ user.get_username }}</a></li>
+      <li><a href="{% url 'polls:profilepage' %}"><img src='{% static 'polls/images/nav1.png' %}'>&nbsp;&nbsp;Edit Profile</a></li>
+      <li><a href="{% url 'polls:changepwdpage' %}"><img src='{% static 'polls/images/nav2.png' %}'>&nbsp;&nbsp;Change Password</a></li>
+      <li><a href="{% url 'polls:library' %}"><img src='{% static 'polls/images/nav3.png' %}'>&nbsp;&nbsp;Library</a></li>
+      <li><a href="{% url 'polls:logout' %}"><img src='{% static 'polls/images/nav4.png' %}'>&nbsp;&nbsp;Logout</a></li>
+     </ul>
+    </div>
+   </div>
+  </nav>
+</div>
+<div class="container">
+		<div class="row">
+			<div class="col-md-9">
+				<div class="row">
+					<div class="col-md-12 pointer" data-toggle="modal" data-target="#myModal" style="background-image: url('{% static 'polls/images/modal.png' %}');background-repeat: no-repeat;background-size: cover;height: 60vh;">
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="demo"></div>
+					</div>
+					<div class="col-md-8">
+						<div class="demo"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="demo"></div>
+					</div>
+					<div class="col-md-4">
+						<div class="demo"></div>
+					</div>
+					<div class="col-md-4">
+						<div class="demo"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="demo"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="demo"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="demo"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer style="height: 45px;background-color: #A091C4;width: 100vw;padding: 10px;text-transform: uppercase;font-size: 18px;color: white;margin-top:2%;">
+		<div class="container">
+			About Houzzane&nbsp;&nbsp;|
+			Terms of use&nbsp;&nbsp;|
+			Privacy Policy&nbsp;&nbsp;|
+			Contact Us&nbsp;&nbsp;|
+			@ Terms & Privacy Houzz Inc. © 2016&nbsp;&nbsp;|
+			<i class="fa fa-facebook" aria-hidden="true"></i>&nbsp;&nbsp;
+			<i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;&nbsp;
+			<i class="fa fa-linkedin" aria-hidden="true"></i>
+
+		</div>
+	</footer>
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="container">
+				<div class="row" style="  background-color: black;">
+					<div class="col-md-8 modal-image"  style="background-image:url('{% static 'polls/images/modal.png' %}');min-height: 80vh;background-repeat: no-repeat; background-size: cover;margin-top:3%;margin-bottom:3%">
+						<div class="tags">
+							<div class="child">+</div>
+							<div class="child_hover">Something about it!!</div>
+						</div>
+					</div>
+					<div class="col-md-4" style="overflow-y:auto;overflow-x:hidden;max-height:600px;background-color:white;min-height: 90vh;">
+						<div class="row modal-sidebar-row">
+							<div class="col-md-4">
+								<img src="{% static 'polls/images/architect_image.png' %}" />
+
+							</div>
+							<div class="col-md-8">
+								<div class="row">
+									<div class="col-md-12">
+										Andrew Simonds
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<img src="{% static 'polls/images/review_star.png' %}">&nbsp;&nbsp;<img src="{% static 'polls/images/review_star.png' %}">&nbsp;&nbsp;<img src="{% static 'polls/images/review_star.png' %}">&nbsp;&nbsp;<img src="{% static 'polls/images/review_star.png' %}">&nbsp;&nbsp;<img src="{% static 'polls/images/review_star.png' %}">
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row modal-sidebar-row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12">
+										Specialized In
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="row">
+											<div class="col-md-6">
+												<img src="{% static 'polls/images/interior.png' %}" style="width:33px">&nbsp;&nbsp;Interior Design
+											</div>
+											<div class="col-md-6">
+												<img src="{% static 'polls/images/home.png' %}" style="width:33px">&nbsp;&nbsp;Planning
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-6">
+												<img src="{% static 'polls/images/landscape.png' %}" style="width:33px">&nbsp;&nbsp;Landscape
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row modal-sidebar-row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12">
+										Other works
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<img src="{% static 'polls/images/sample_image.png' %}" style="width:100%">
+									</div>
+									<div class="col-md-4">
+										<img src="{% static 'polls/images/sample_image.png' %}" style="width:100%">
+									</div>
+									<div class="col-md-4">
+										<img src="{% static 'polls/images/sample_image.png' %}" style="width:100%">
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-4">
+										<img src="{% static 'polls/images/sample_image.png' %}" style="width:100%">
+									</div>
+								</div>
+								<div class="row white-text center-align">
+									<div class="col-md-12">
+										<button type="button" class="btn link-btn" style="background-color:#E0A2B3">See More</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row modal-sidebar-row">
+							<div class="col-md-12">
+								<div class="row">
+									<div class="col-md-12">
+										Testimonials
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12">
+										<div class="row">
+											<div class="col-md-12">
+												<img src="{% static 'polls/images/testimonial_comma.png' %}">
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-10 col-md-offset-1" style="word-break: break-word;">
+												Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+												tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+												quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+												consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+												cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+												proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-12 center-align" style="word-break: break-word;">
+												- Robert Don
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-1 col-md-offset-11">
+												<img src="{% static 'polls/images/testimonial_comma.png' %}" style="transform:rotate(180deg)">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

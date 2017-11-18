@@ -1,0 +1,79 @@
+
+{% load static from staticfiles %}
+  
+<title>Help</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'polls/css/signup.css' %}">
+</head>
+<body>
+
+
+  <div class="container-fluid bg">
+      <div class="col-md-12 text-center" style="padding-top:6vh;">
+              <a href="{% url 'polls:index' %}" style="text-align:center;"><img src="{% static 'polls/images/home.png' %}" alt="" width="130px"></a>
+    
+    </div>
+    {% if message %}<p class="error"><strong>{{ message }}</strong></p> {% endif %}
+
+    <form class="form-horizontal" action= "{% url 'polls:creatinguser' %}" method="post">
+    	{% csrf_token %}
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+              <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-1 toppad">
+                  <input type="text" name="firstname" method="POST" class="form-control name" id="pwd" placeholder="First Name">
+                </div>
+              </div>
+              <div class="form-group ">
+                <div class="col-sm-10 col-sm-offset-1 toppad">
+                  <input type="text" name="lastname" method="POST" class="form-control name" id="pwd" placeholder="Last Name">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-1">          
+                  <input type="email" name="email"  method="POST" class="form-control name" id="pwd" placeholder="Email">
+                  </div>
+              </div> 
+              <div class="form-group"  style="margin-top:0px;">
+                <div class="col-sm-10 col-sm-offset-1">          
+                  <input type="text" name="username" method="POST" class="form-control name" id="pwd" placeholder="Username">
+                  </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-1">          
+                  <input type="password" name="password1"  method="POST" class="form-control name" id="pwd" placeholder="Password">
+                  </div>
+              </div> 
+              <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-1">          
+                  <input type="password" name="password2"  method="POST" class="form-control name" id="pwd" placeholder="Confirm Password">
+                  </div>
+              </div> 
+              <div class="form-group row">
+                <div class="col-sm-10 col-sm-offset-1 cbpad">
+                  <div class="form-check">
+                    <label class="form" style="font-family: 'TypoRound-Light', Fallback, sans-serif;margin-left:15%;font-size:14px;">
+                      <input class="form-check-input" type="checkbox" ><a class="checklink" href="#"> Agree the terms of Services and Privacy Policy</a>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-12 btn1" style="margin-top:40px;">
+                <input type="submit" name="signup" value="Sign Up" class="cta"><span class="typoround-light-small"></span>
+              </div>
+              <div class="col-sm-12">
+              <p class="heading">Already have an account?</p>
+              </div>
+              <div class="col-sm-12 btn2">
+                <a href="{% url 'polls:loginpage' %}" class="cta1 shadow"><span class="typoround-light-small">Log In</span></a>
+              </div>  
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+  </body>
+  </html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static from staticfiles %}
+
+ <link href="{% static 'polls/css/bootstrap.css' %}" rel="stylesheet">
+ <script src="{% static 'polls/js/jquery.js' %}"></script>
+ <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+ <script src="{% static 'polls/js/bootstrap.js' %}"></script>
+ <link rel="stylesheet" type="text/css" href="{% static 'polls/css/font-awesome.css' %}">
+ <script src="{% static 'polls/js/jquery-1.7.min.js' %}" type="text/javascript" charset="utf-8"></script>
+ <script src="{% static 'polls/js/jquery.featureCarousel.js' %}" type="text/javascript" charset="utf-8"></script>
+ <link rel="stylesheet" type="text/css" href="{% static 'polls/css/style.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'polls/css/login.css' %}">
+ 
+ <script type="text/javascript" src="{% static 'polls/js/script.js' %}"></script>
+
+<body>
+<style type="text/css">
+ .navbar-inverse .navbar-nav>li>a{
+ color: white
+}
+</style>
+ <div class="container-fluid header white-text uppercase" >
+  <nav class="navbar navbar-inverse navbar-fixed-top transparent-background" role="navigation" style="background-color:#222">
+   <div class="container-fluid">
+    <div class="navbar-header">
+     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+     </button>
+     <a class="navbar-brand" href=""><img src="{% static 'polls/images/logo.png' %}" style="width:50px"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+     <ul class="nav navbar-nav navbar-right" >
+      <li><a href="{% url 'polls:index2' %}"><img src='{% static 'polls/images/work.png' %}'>&nbsp;&nbsp;Hi , {{ user.get_username }}</a></li>
+      <li><a href="{% url 'polls:profilepage' %}"><img src='{% static 'polls/images/nav1.png' %}'>&nbsp;&nbsp;Edit Profile</a></li>
+      <li><a href="{% url 'polls:changepwdpage' %}"><img src='{% static 'polls/images/nav2.png' %}'>&nbsp;&nbsp;Change Password</a></li>
+      <li><a href="{% url 'polls:library' %}"><img src='{% static 'polls/images/nav3.png' %}'>&nbsp;&nbsp;Library</a></li>
+      <li><a href="{% url 'polls:logout' %}"><img src='{% static 'polls/images/nav4.png' %}'>&nbsp;&nbsp;Logout</a></li>
+     </ul>
+    </div>
+   </div>
+  </nav>
+</div>
+
+  <div class="container-fluid bg" style="position:absolute;top:0%;width:100%;margin:auto;height:100%">
+      <div class="col-md-12 text-center" style="padding-top:20vh;">
+            <a href="" style="text-align:center;"><img src="{% static 'polls/images/home.png' %}" alt="" width="130px"></a>
+    
+    </div>
+    
+{% if message %}<p class="error"><strong>{{message}}</strong></p> {% endif %}
+    <form class="form-horizontal" action="{% url 'polls:changepwd' %}" method="post">
+     {% csrf_token %}
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+              <div class="form-group ">
+                <div class="col-sm-10 col-sm-offset-1 toppad">
+                  <input type="password" name="oldpassword"  method="POST" class="form-control name" placeholder="Old Password">
+                </div>
+              </div> 
+              <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-1">          
+                  <input type="password" name="password1"  method="POST" class="form-control name" placeholder="New Password">
+                  </div>
+              </div> 
+              <div class="form-group">
+                <div class="col-sm-10 col-sm-offset-1">          
+                  <input type="password" name="password2"  method="POST" class="form-control name" placeholder="Confirm New Password">
+                  </div>
+              </div> 
+              
+              <div class="col-sm-12 btn1" style="margin-top:20px;">
+                <input class="cta" type="submit" name="changepwd" value="Change Password"><span class="typoround-light-small"></span>
+              </div>
+                
+          </div>
+        </div>
+      </div>
+      </form>
+    </dvi>

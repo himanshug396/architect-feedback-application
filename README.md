@@ -1,1 +1,1 @@
-# django-polls
+Architect Application.
